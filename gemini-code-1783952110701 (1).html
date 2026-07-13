@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siyaram Container House - आधुनिक और टिकाऊ कंटेनर घर</title>
+    <style>
+        /* CSS Reset & Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary-color: #0f4c81; /* प्रोफेशनल ब्लू */
+            --secondary-color: #f5a623; /* वार्म ऑरेंज/गोल्ड */
+            --dark-color: #2c3e50;
+            --light-color: #f8f9fa;
+        }
+
+        body {
+            color: var(--dark-color);
+            line-height: 1.6;
+            background-color: #ffffff;
+        }
+
+        /* Navigation */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        #home {
+            padding: 160px 20px 120px;
+            background: linear-gradient(rgba(15, 76, 129, 0.85), rgba(44, 62, 80, 0.9)), 
+                        url('http://googleusercontent.com/image_collection/image_retrieval/6966317671499790048_0') no-repeat center center/cover;
+            color: #ffffff;
+            text-align: center;
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #home h1 {
+            font-size: 45px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        #home p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 700px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: #ffffff;
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #e09612;
+            transform: translateY(-2px);
+        }
+
+        /* Common Section Styling */
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+            position: relative;
+            color: var(--primary-color);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--light-color);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative;
+            height: 250px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* About Us Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: #555;
+            text-align: justify;
+        }
+
+        /* Contact Us Section */
+        .contact-container {
+            display: flex;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .info-item {
+            margin-bottom: 25px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .info-item span {
+            font-size: 24px;
+        }
+
+        .info-item p {
+            font-size: 16px;
+        }
+
+        .info-item a {
+            color: var(--dark-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .info-item a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .contact-form {
+            flex: 1.5;
+            min-width: 300px;
+            background-color: var(--light-color);
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 120px;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #0b3961;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        /* Mobile Menu Toggle & Responsive Styles */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--dark-color);
+            border-radius: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #ffffff;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                padding: 20px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+                text-align: center;
+            }
+
+            #home h1 {
+                font-size: 32px;
+            }
+
+            #home p {
+                font-size: 16px;
+            }
+            
+            .contact-container {
+                flex-direction: column-reverse;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">Siyaram <span>Container House</span></div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="nav-list">
+                <li><a href="#home">होम</a></li>
+                <li><a href="#services"> सर्विसेज़</a></li>
+                <li><a href="#gallery">गैलरी</a></li>
+                <li><a href="#about">अबाउट अस</a></li>
+                <li><a href="#contact">कॉन्टैक्ट अस</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home">
+        <h1>कम लागत में सपनों का आधुनिक घर</h1>
+        <p>Siyaram Container House आपके लिए लाता है प्रीमियम क्वालिटी, टिकाऊ और कस्टमाइज्ड लग्जरी कंटेनर होम्स, ऑफिस और कैफ़े। वह भी बेहद किफायती दामों में।</p>
+        <a href="#contact" class="btn">अभी कोटेशन पाएं</a>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2 class="section-title">हमारी सर्विसेज़</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🏠</div>
+                <h3>रेसिडेंशियल कंटेनर</h3>
+                <p>लिविंग ROOM, बेडरूम और किचन से लैस पूरी तरह से रहने योग्य लग्जरी कंटेनर घर।</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💼</div>
+                <h3>कमर्शियल ऑफिस स्पेस</h3>
+                <p>कॉरपोरेट साइट्स और बिज़नेस के लिए रेडी-टू-यूज़ पोर्टेबल और आधुनिक ऑफिस केबिन।</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">☕</div>
+                <h3>कंटेनर कैफ़े और शॉप्स</h3>
+                <p>आपके स्टार्टअप या रेस्टोरेंट बिज़नेस के लिए कस्टमाइज्ड और ट्रेंडी पोर्टेबल कैफ़े डिज़ाइन।</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section (New) -->
+    <section id="gallery">
+        <h2 class="section-title">हमारे कस्टमाइज्ड कंटेनर प्रोजेक्ट्स</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/6966317671499790048_0" alt="Siyaram Container House Design 1">
+            </div>
+            <div class="gallery-item">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/6966317671499790048_1" alt="Siyaram Container House Design 2">
+            </div>
+            <div class="gallery-item">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/6966317671499790048_2" alt="Siyaram Container House Design 3">
+            </div>
+            <div class="gallery-item">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/6966317671499790048_3" alt="Siyaram Container House Design 4">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" style="background-color: var(--light-color); border-radius: 8px;">
+        <h2 class="section-title">अबाउट अस</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p><strong>Siyaram Container House</strong> भारत में पोर्टेबल और कस्टमाइज्ड कंटेनर स्ट्रक्चर्स का एक भरोसेमंद नाम है। हम पुराने और नए शिपिंग कंटेनर्स को एक बेहद खूबसूरत, मजबूत और रहने लायक आलीशान जगह में बदलने के विशेषज्ञ हैं।</p>
+                <p>हमारा लक्ष्य पर्यावरण के अनुकूल (Eco-friendly) और भूकंपरोधी (Earthquake resistant) घर बनाना है जो पारंपरिक ईंट-पत्थर के घरों की तुलना में बहुत जल्दी तैयार हो जाते हैं और जिन्हें आसानी से एक जगह से दूसरी जगह ले जाया जा सकता है।</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact">
+        <h2 class="section-title">कॉन्टैक्ट अस</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>हमसे संपर्क करें</h3>
+                <p style="margin-bottom: 20px;">यदि आपके पास कोई सवाल है या आप अपने प्रोजेक्ट के लिए बात करना चाहते हैं, तो हमसे संपर्क करें या संदेश भेजें।</p>
+                
+                <div class="info-item">
+                    <span>📍</span>
+                    <div>
+                        <strong>पता:</strong>
+                        <p>Near By Aaslpur railway station boraj road Aaslpur, Jaipur, Rajasthan - 303338</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span>📞</span>
+                    <div>
+                        <strong>मोबाइल नंबर:</strong>
+                        <p><a href="tel:7240531616">7240531616</a>, <a href="tel:9358020385">9358020385</a></p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span>✉️</span>
+                    <div>
+                        <strong>ईमेल:</strong>
+                        <p><a href="mailto:containersiyaram@gamil.com">containersiyaram@gamil.com</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">आपका नाम</label>
+                        <input type="text" id="name" required placeholder="अपना नाम दर्ज करें">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">ईमेल पता</label>
+                        <input type="email" id="email" required placeholder="अपना ईमेल दर्ज करें">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">आपका संदेश</label>
+                        <textarea id="message" required placeholder="आप किस तरह का कंटेनर घर बनवाना चाहते हैं?"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">संदेश भेजें</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Siyaram Container House. सर्वाधिकार सुरक्षित।</p>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+
+        mobileMenu.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navList.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
